@@ -1,0 +1,409 @@
+/* Emails Page - Theme-Aware Figma Design */
+
+.emailPage {
+    padding: 28px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* === TAB BAR === */
+.tabBar {
+    display: flex;
+    gap: 4px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 4px;
+    margin-bottom: 24px;
+    width: fit-content;
+    box-shadow: var(--shadow-sm);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.tab:hover {
+    background: var(--color-hover);
+    color: var(--color-text-primary);
+}
+
+.tabActive {
+    background: var(--gradient-primary) !important;
+    color: white !important;
+    box-shadow: 0 2px 8px rgba(46, 203, 240, 0.25);
+}
+
+/* === COMPOSE LAYOUT (two-panel) === */
+.composeLayout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.composeCard,
+.previewCard {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 28px;
+    box-shadow: var(--shadow-card);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.composeHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.composeIcon {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.composeHeader h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 4px;
+}
+
+.statusBadge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-success);
+}
+
+/* === FORM ELEMENTS === */
+.formGroup {
+    margin-bottom: 18px;
+}
+
+.label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.required {
+    color: var(--color-error);
+}
+
+.input,
+.textarea,
+.select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--color-text-primary);
+    background: var(--color-bg-input);
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(46, 203, 240, 0.12);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+    font-family: inherit;
+}
+
+.wordCountRow {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+.advancedToggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-primary);
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+.advancedOptions {
+    overflow: hidden;
+}
+
+.optionsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding-bottom: 12px;
+}
+
+.generateButton {
+    width: 100%;
+    padding: 14px;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 16px rgba(46, 203, 240, 0.2);
+    margin-top: 8px;
+}
+
+.generateButton:hover:not(:disabled) {
+    box-shadow: 0 6px 20px rgba(46, 203, 240, 0.35);
+    transform: translateY(-1px);
+}
+
+.generateButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* === PREVIEW PANEL === */
+.previewContent {
+    height: 100%;
+}
+
+.previewTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 20px;
+}
+
+.previewActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.cancelButton {
+    flex: 1;
+    padding: 12px;
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.cancelButton:hover {
+    background: var(--color-hover);
+}
+
+.sendButton {
+    flex: 1;
+    padding: 12px;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 12px rgba(46, 203, 240, 0.2);
+}
+
+.sendButton:hover:not(:disabled) {
+    box-shadow: 0 5px 16px rgba(46, 203, 240, 0.35);
+}
+
+.previewEmpty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    text-align: center;
+    color: var(--color-text-muted);
+}
+
+.previewEmptyIcon {
+    margin-bottom: 16px;
+    opacity: 0.3;
+}
+
+.previewEmpty h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--color-text-secondary);
+}
+
+.previewEmpty p {
+    font-size: 14px;
+}
+
+/* === HISTORY STYLES === */
+.historyContainer {
+    max-width: 900px;
+}
+
+.historyList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.historyCard {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.historyCard:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.historyCardExpanded {
+    box-shadow: var(--shadow-md);
+}
+
+.historyCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.historyCardHeader h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 4px;
+}
+
+.historySubject {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.historyMeta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text-muted);
+}
+
+.statusBadgeSmall {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: capitalize;
+}
+
+.success {
+    background: var(--color-success-bg);
+    color: var(--color-success);
+}
+
+.warning {
+    background: var(--color-warning-bg);
+    color: var(--color-warning);
+}
+
+.danger {
+    background: var(--color-error-bg);
+    color: var(--color-error);
+}
+
+.externalBadge {
+    font-size: 10px;
+    font-weight: 600;
+    background: var(--color-info-bg);
+    color: var(--color-info);
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.historyPreview {
+    overflow: hidden;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-border);
+}
+
+.historyBody {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    white-space: pre-wrap;
+}
+
+.historyFooter {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .composeLayout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .emailPage {
+        padding: 20px 16px;
+    }
+
+    .tabBar {
+        width: 100%;
+    }
+
+    .tab {
+        flex: 1;
+        justify-content: center;
+    }
+}

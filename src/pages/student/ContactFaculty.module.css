@@ -1,0 +1,419 @@
+/* Contact Faculty - Theme-Aware Figma Design */
+
+.contactFacultyPage {
+    padding: 28px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+}
+
+/* === HEADER === */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin: 4px 0 0;
+}
+
+.quotaCard {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.quotaLabel {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+}
+
+.quotaValue {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* === DEPARTMENT FILTER === */
+.filters {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.filterButton {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.filterButton:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.filterButton.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 2px 8px rgba(46, 203, 240, 0.25);
+}
+
+/* === SEARCH === */
+.searchContainer {
+    margin-bottom: 24px;
+}
+
+.searchWrapper {
+    position: relative;
+    max-width: 500px;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+}
+
+.searchBox {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--color-text-primary);
+    background: var(--color-bg-input);
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+.searchBox:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(46, 203, 240, 0.12);
+}
+
+.searchBox::placeholder {
+    color: var(--color-text-muted);
+}
+
+/* === FACULTY GRID — Figma Card Design === */
+.facultyGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.facultyCard {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.facultyCard:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* Colored header band per card */
+.facultyCard:nth-child(6n+1) {
+    border-top: 3px solid #2ECBF0;
+}
+
+.facultyCard:nth-child(6n+2) {
+    border-top: 3px solid #8B5CF6;
+}
+
+.facultyCard:nth-child(6n+3) {
+    border-top: 3px solid #F59E0B;
+}
+
+.facultyCard:nth-child(6n+4) {
+    border-top: 3px solid #EC4899;
+}
+
+.facultyCard:nth-child(6n+5) {
+    border-top: 3px solid #10B981;
+}
+
+.facultyCard:nth-child(6n+6) {
+    border-top: 3px solid #6366F1;
+}
+
+.facultyAvatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin: 20px auto 0;
+    flex-shrink: 0;
+}
+
+/* Cycle avatar background colors */
+.facultyCard:nth-child(6n+1) .facultyAvatar {
+    background: linear-gradient(135deg, #2ECBF0, #36D1DC);
+}
+
+.facultyCard:nth-child(6n+2) .facultyAvatar {
+    background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+}
+
+.facultyCard:nth-child(6n+3) .facultyAvatar {
+    background: linear-gradient(135deg, #F59E0B, #FBBF24);
+}
+
+.facultyCard:nth-child(6n+4) .facultyAvatar {
+    background: linear-gradient(135deg, #EC4899, #F472B6);
+}
+
+.facultyCard:nth-child(6n+5) .facultyAvatar {
+    background: linear-gradient(135deg, #10B981, #34D399);
+}
+
+.facultyCard:nth-child(6n+6) .facultyAvatar {
+    background: linear-gradient(135deg, #6366F1, #818CF8);
+}
+
+.facultyInfo {
+    padding: 16px 20px;
+    text-align: center;
+    flex: 1;
+}
+
+.facultyName {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 4px;
+}
+
+.facultyDesignation {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 8px;
+}
+
+.facultyDepartment,
+.facultyContact {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin: 2px 0;
+}
+
+.emailButton {
+    margin: 0 20px 20px;
+    padding: 10px;
+    background: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.emailButton:hover:not(:disabled) {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.emailButton:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* === EMAIL MODAL === */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    padding: 20px;
+}
+
+.modalContent {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 560px;
+    width: 100%;
+    box-shadow: var(--shadow-xl);
+}
+
+.modalTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 4px;
+}
+
+.modalSubtitle {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    margin: 0 0 24px;
+}
+
+.formGroup {
+    margin-bottom: 18px;
+}
+
+.formLabel {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.required {
+    color: var(--color-error);
+}
+
+.formInput,
+.formTextarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--color-text-primary);
+    background: var(--color-bg-input);
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(46, 203, 240, 0.12);
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+    font-family: inherit;
+}
+
+.modalActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.cancelBtn {
+    flex: 1;
+    padding: 12px;
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.cancelBtn:hover {
+    background: var(--color-hover);
+}
+
+.sendBtn {
+    flex: 1;
+    padding: 12px;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 12px rgba(46, 203, 240, 0.2);
+}
+
+.sendBtn:hover:not(:disabled) {
+    box-shadow: 0 5px 16px rgba(46, 203, 240, 0.35);
+}
+
+.sendBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .contactFacultyPage {
+        padding: 20px 16px;
+    }
+
+    .facultyGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filters {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+}

@@ -1,0 +1,468 @@
+/* Student Sidebar Styles — Figma Light Theme */
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+/* Toggle Button */
+.toggleButton {
+    position: absolute;
+    top: 20px;
+    right: 12px;
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 2px 8px rgba(46, 203, 240, 0.25);
+    border: 2px solid var(--color-bg-primary);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.toggleButton:hover {
+    box-shadow: 0 4px 12px rgba(46, 203, 240, 0.4);
+}
+
+/* Header */
+.header {
+    padding: 28px 20px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+    transition: padding 0.35s ease, border-color 0.3s ease;
+}
+
+.sidebar.collapsed .header {
+    padding: 28px 16px 20px;
+    justify-content: center;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar.collapsed .logo {
+    width: 36px;
+    height: 36px;
+}
+
+.brandWrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+    transition: all 0.35s ease;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.sidebar.collapsed .brandWrapper {
+    width: 0;
+    opacity: 0;
+}
+
+.brandName {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.brandSub {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+/* Navigation */
+.nav {
+    flex: 1;
+    padding: 16px 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+}
+
+.navItem {
+    display: block;
+    text-decoration: none;
+    color: var(--sidebar-text);
+    margin: 4px 12px;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+}
+
+.navItem:hover {
+    background: var(--sidebar-hover-bg);
+    color: var(--color-text-primary);
+}
+
+.navItem.active {
+    background: var(--sidebar-active-bg);
+    color: var(--sidebar-text-active);
+    box-shadow: 0 4px 12px rgba(46, 203, 240, 0.2);
+}
+
+.navContent {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 11px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+.sidebar.collapsed .navContent {
+    justify-content: center;
+    padding: 11px;
+}
+
+.navIcon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    transition: color 0.25s ease;
+}
+
+.navItem.active .navIcon {
+    color: white !important;
+}
+
+.navLabel {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.sidebar.collapsed .navLabel {
+    opacity: 0;
+    width: 0;
+    transform: translateX(-10px);
+}
+
+/* Footer */
+.footer {
+    padding: 16px;
+    border-top: 1px solid var(--color-border);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.3s ease;
+}
+
+.sidebar.collapsed .footer {
+    padding: 12px 8px;
+    gap: 12px;
+}
+
+.switchButton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+.switchButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar.collapsed .switchButton {
+    padding: 10px;
+    justify-content: center;
+}
+
+.switchText {
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.userFooterSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+}
+
+.sidebar.collapsed .userFooterSection {
+    flex-direction: column;
+    gap: 12px;
+}
+
+.userSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 1;
+}
+
+.sidebar.collapsed .userSection {
+    justify-content: center;
+}
+
+.userAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--color-border);
+    transition: border-color 0.3s ease;
+}
+
+.userAvatarPlaceholder {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.userInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.sidebar.collapsed .userInfoWrapper {
+    width: 0;
+    opacity: 0;
+}
+
+.userName {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.3s ease;
+}
+
+.userRole {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    transition: color 0.3s ease;
+}
+
+.logoutButton {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-error-bg);
+    color: var(--color-error);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+}
+
+.logoutButton:hover {
+    background: var(--color-error);
+    color: white;
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+/* Scrollbar */
+.sidebar::-webkit-scrollbar {
+    width: 3px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.expanded {
+        width: 260px;
+        transform: translateX(0);
+    }
+}
+
+/* ===== Faculty Sidebar Overrides ===== */
+.facultySidebar {
+    background: var(--sidebar-bg);
+}
+
+.facultySidebar .header {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.facultySidebar .brandName {
+    color: var(--color-text-primary);
+}
+
+.facultySidebar .brandSub {
+    color: #00BF8E;
+}
+
+.facultySidebar .navItem {
+    color: #94A3B8;
+}
+
+.facultySidebar .navItem:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #E2E8F0;
+}
+
+.navItem.facultyActive {
+    background: #00BF8E !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(0, 191, 142, 0.3);
+}
+
+.facultySidebar .footer {
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.facultySidebar .userName {
+    color: #F1F5F9;
+}
+
+.facultySidebar .userRole {
+    color: #64748B;
+}
+
+.facultySidebar .toggleButton {
+    background: linear-gradient(135deg, #00BF8E, #00D4A0);
+    box-shadow: 0 2px 8px rgba(0, 191, 142, 0.3);
+}
+
+.facultySidebar .toggleButton:hover {
+    box-shadow: 0 4px 12px rgba(0, 191, 142, 0.5);
+}
+
+.facultySidebar .userAvatarPlaceholder {
+    background: linear-gradient(135deg, #00BF8E, #00D4A0);
+}
+
+/* ===== Admin Sidebar Overrides ===== */
+.adminSidebar {
+    background: var(--sidebar-bg);
+}
+
+.adminSidebar .header {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.adminSidebar .brandName {
+    color: var(--color-text-primary);
+}
+
+.adminSidebar .brandSub {
+    color: #F59E0B;
+    /* Amber/Orange */
+}
+
+.adminSidebar .navItem {
+    color: #94A3B8;
+}
+
+.adminSidebar .navItem:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #E2E8F0;
+}
+
+.navItem.adminActive {
+    background: #F59E0B !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.adminSidebar .footer {
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.adminSidebar .userName {
+    color: #F1F5F9;
+}
+
+.adminSidebar .userRole {
+    color: #94A3B8;
+}
+
+.adminSidebar .toggleButton {
+    background: linear-gradient(135deg, #F59E0B, #FCD34D);
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.adminSidebar .toggleButton:hover {
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.5);
+}
+
+.adminSidebar .userAvatarPlaceholder {
+    background: linear-gradient(135deg, #F59E0B, #FCD34D);
+}

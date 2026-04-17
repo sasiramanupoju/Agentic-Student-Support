@@ -1,0 +1,629 @@
+/* =============================================
+   Auth Pages — Dark Figma Theme
+   Matches the ACE ASSIST Figma login design
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ---- Keyframes ---- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 0.8; }
+}
+
+/* ---- Full-page wrapper ---- */
+.authContainer {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* Cyan / purple vignette glows on edges */
+.authContainer::before,
+.authContainer::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(140px);
+  z-index: 0;
+  pointer-events: none;
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+.authContainer::before {
+  background: rgba(88, 28, 235, 0.25);
+  top: -120px;
+  left: -150px;
+}
+
+.authContainer::after {
+  background: rgba(34, 211, 238, 0.18);
+  bottom: -100px;
+  right: -120px;
+}
+
+/* DotGrid sits behind everything */
+.dotGridBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: auto;
+}
+
+/* Wrapper that stacks the title ABOVE the card */
+.authWrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 540px;
+}
+
+/* ---- Admin link — top-right corner ---- */
+.adminCorner {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+}
+
+.adminCorner:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.adminCornerIcon {
+  font-size: 14px;
+}
+
+/* ---- Glass card ---- */
+.authCard {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  padding: 40px 36px;
+  max-width: 460px;
+  width: 100%;
+  box-shadow:
+    0 25px 60px -12px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(88, 28, 235, 0.06) inset;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Scrollable card variant for Register */
+.authCardScrollable {
+  composes: authCard;
+  max-height: 85vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.authCardScrollable::-webkit-scrollbar {
+  width: 5px;
+}
+
+.authCardScrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.authCardScrollable::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+.authCardScrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---- Logo / header section ---- */
+.logoSection {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 12px;
+  filter: brightness(1.2);
+}
+
+.title {
+  font-family: 'Space Grotesk', 'Outfit', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #c084fc, #e879f9, #22d3ee, #818cf8);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 4px;
+}
+
+.tagline {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.5px;
+}
+
+/* ---- Role toggle tabs ---- */
+.roleToggle {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 4px;
+}
+
+.roleButton {
+  flex: 1;
+  padding: 11px 16px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 11px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.roleButton:hover:not(.roleActive) {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.roleActive {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.35);
+  font-weight: 600;
+}
+
+/* ---- Form ---- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.3px;
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 13px 16px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.input:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.12);
+}
+
+.input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Select dropdown dark styling */
+.input option {
+  background: #1a1a2e;
+  color: #ffffff;
+}
+
+.inputError {
+  border-color: rgba(239, 68, 68, 0.6) !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.errorText {
+  font-size: 12px;
+  color: #f87171;
+  margin-top: 2px;
+}
+
+/* ---- Remember me + Forgot password row ---- */
+.formExtras {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -4px;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.rememberMe input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #a855f7;
+  cursor: pointer;
+}
+
+.rememberMe span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.forgotLink {
+  font-size: 13px;
+  color: rgba(168, 85, 247, 0.7);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: 'Outfit', sans-serif;
+  transition: color 0.25s ease;
+  padding: 0;
+}
+
+.forgotLink:hover {
+  color: #c084fc;
+  text-decoration: underline;
+}
+
+/* ---- Submit button ---- */
+.submitButton {
+  background: linear-gradient(135deg, #7c3aed, #6366f1, #06b6d4);
+  background-size: 200% auto;
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 24px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  margin-top: 4px;
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.3);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+}
+
+.submitButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: all 0.6s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.45);
+}
+
+.submitButton:hover:not(:disabled)::after {
+  left: 100%;
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.submitArrow {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.submitButton:hover:not(:disabled) .submitArrow {
+  transform: translateX(4px);
+}
+
+/* ---- Links (bottom) ---- */
+.links {
+  margin-top: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.linkText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.link {
+  color: rgba(168, 85, 247, 0.8);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.link:hover {
+  color: #c084fc;
+  text-decoration: underline;
+}
+
+/* ---- OTP Styles (preserved from original) ---- */
+.otpContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.otpInput {
+  width: 48px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  font-family: 'Space Grotesk', monospace;
+}
+
+.otpInput:focus {
+  outline: none;
+  border-color: #a855f7;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+}
+
+.otpDigitError {
+  border-color: rgba(239, 68, 68, 0.6);
+}
+
+/* ---- Password Strength (preserved, restyled for dark) ---- */
+.passwordStrength {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.strengthBar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.strengthFill {
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.strengthFill.strengthWeak {
+  width: 33%;
+  background: #ef4444;
+}
+
+.strengthFill.strengthMedium {
+  width: 66%;
+  background: #f59e0b;
+}
+
+.strengthFill.strengthStrong {
+  width: 100%;
+  background: #22c55e;
+}
+
+.strengthLabel {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.strengthLabel.strengthWeak   { color: #ef4444; }
+.strengthLabel.strengthMedium { color: #f59e0b; }
+.strengthLabel.strengthStrong { color: #22c55e; }
+
+/* ---- Misc (resend, helper text, loading, error alert) ---- */
+.helperText {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 4px;
+}
+
+.errorAlert {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #f87171;
+}
+
+.resendSection {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.resendText {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.resendButton {
+  background: transparent;
+  color: rgba(168, 85, 247, 0.7);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.resendButton:hover:not(:disabled) {
+  color: #c084fc;
+  text-decoration: underline;
+}
+
+.resendButton:disabled {
+  color: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+}
+
+.loadingText {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 16px;
+}
+
+.countdown {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+  margin-top: 4px;
+}
+
+/* ---- Form Grid (for Register) ---- */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .authContainer {
+    padding: 16px;
+  }
+
+  .authCard, .authCardScrollable {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .authCardScrollable {
+    max-height: 90vh;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .adminCorner {
+    top: 12px;
+    right: 14px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .otpInput {
+    width: 40px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
